@@ -1,0 +1,15 @@
+---
+import { socialLinks } from '../../data/socialLinks';
+---
+
+<ul class="flex flex-wrap gap-x-5 gap-y-3" aria-label="Social profiles">
+  {socialLinks.map(({ platform, url }) => (
+    <li>
+      {url ? (
+        <a href={url} class="text-link" rel="me">{platform}</a>
+      ) : (
+        <span class="text-muted">{platform} <span class="text-xs">(not set)</span></span>
+      )}
+    </li>
+  ))}
+</ul>

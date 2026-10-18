@@ -1,0 +1,38 @@
+<button
+  id="theme-toggle"
+  type="button"
+  class="theme-toggle"
+  aria-label="Light theme"
+  aria-pressed="false"
+  hidden
+>
+  <span aria-hidden="true" class="theme-symbol">◐</span>
+  <span data-theme-label>Light theme</span>
+</button>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('#theme-toggle');
+  const label = toggle?.querySelector<HTMLElement>('[data-theme-label]');
+
+  const updateToggle = () => {
+    const isLight = document.documentElement.dataset.theme === 'light';
+    toggle?.setAttribute('aria-pressed', String(isLight));
+    toggle?.setAttribute('aria-label', 'Light theme');
+    if (label) label.textContent = isLight ? 'Light theme on' : 'Light theme off';
+  };
+
+  if (toggle) {
+    updateToggle();
+    toggle.hidden = false;
+    toggle.addEventListener('click', () => {
+      const theme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = theme;
+      try {
+        localStorage.setItem('theme', theme);
+      } catch {
+        // The theme still works when browser storage is unavailable.
+      }
+      updateToggle();
+    });
+  }
+</script>

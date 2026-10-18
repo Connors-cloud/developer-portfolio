@@ -1,0 +1,25 @@
+# Dependencies and generated output
+node_modules/
+.npm-cache/
+dist/
+.astro/
+.vite/
+coverage/
+
+# Environment files and local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.npmrc
+
+# Logs and local tooling
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local verification artifacts
+.verification/

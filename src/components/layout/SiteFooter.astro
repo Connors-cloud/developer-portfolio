@@ -1,0 +1,11 @@
+---
+import { profile } from '../../data/profile';
+import SocialLinks from '../navigation/SocialLinks.astro';
+---
+
+<footer class="site-footer">
+  <div class="site-shell flex flex-col gap-5 py-8 text-sm">
+    <SocialLinks />
+    <p class="text-muted">© {new Date().getFullYear()} {profile.name} · {profile.siteTitle}</p>
+  </div>
+</footer>
